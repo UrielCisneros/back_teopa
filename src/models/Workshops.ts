@@ -3,7 +3,7 @@ import { Schema, model, Document }  from 'mongoose';
 export interface IWorkShop extends Document {
     nombre: string;
     fecha_inicio: string;
-    fehca_final: string;
+    fecha_final: string;
     horario: string;
     id_user: string;
 }

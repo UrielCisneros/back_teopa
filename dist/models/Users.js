@@ -35,6 +35,7 @@ const UserSchema = new mongoose_1.Schema({
     admin: Boolean,
     rol: String,
     edad: String,
+    //Datos alumno
     escuela_donde_estudia: String,
     grado: String,
     nombre_tutor: String

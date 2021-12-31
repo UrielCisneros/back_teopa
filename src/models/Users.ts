@@ -16,8 +16,9 @@ export interface IUser extends Document {
     escuela_donde_estudia: string;
     grado: string;
     nombre_tutor: string;
+    encryptPassword(password: string): Promise<string>;
+    validatePassword(password: string): Promise<boolean>;
 }
-
 const UserSchema = new Schema({
     nombre: {
         type: String,
@@ -39,6 +40,7 @@ const UserSchema = new Schema({
     admin: Boolean,
     rol: String,
     edad: String,
+    //Datos alumno
     escuela_donde_estudia: String,
     grado: String,
     nombre_tutor: String
