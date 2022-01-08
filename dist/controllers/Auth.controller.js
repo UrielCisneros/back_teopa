@@ -30,6 +30,7 @@ const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(404).json({ message: "Usuario incorrecto.", body: req.body });
         //Enviar un token
         const token = jsonwebtoken_1.default.sign({
+            _id: userBase._id,
             nombre: userBase.nombre,
             domicilio: userBase.domicilio,
             telefono: userBase.telefono,
@@ -56,6 +57,7 @@ const singInSimulation = (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (!userBase)
             return res.status(404).json({ message: "Usuario incorrecto.", body: { id_maestro: req.params.idTeacher } });
         const token = jsonwebtoken_1.default.sign({
+            _id: userBase._id,
             nombre: userBase.nombre,
             domicilio: userBase.domicilio,
             telefono: userBase.telefono,

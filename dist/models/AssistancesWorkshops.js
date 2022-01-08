@@ -14,6 +14,10 @@ const AssistencesWorkshopSchema = new mongoose_1.Schema({
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "user"
     },
+    id_assistence: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: "assistence"
+    },
     assistence: Boolean
 }, {
     timestamps: true

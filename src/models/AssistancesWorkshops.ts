@@ -20,6 +20,10 @@ const AssistencesWorkshopSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "user"
     },
+    id_assistence: {
+        type: Schema.Types.ObjectId,
+        ref: "assistence"
+    },
     assistence: Boolean
 },{
     timestamps: true

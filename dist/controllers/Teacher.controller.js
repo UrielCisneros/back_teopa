@@ -32,6 +32,13 @@ const createTeacher = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.createTeacher = createTeacher;
 //Obtener maestros
 const getTeachers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const teachers = yield Users_1.default.find().where({ rol: 'MAESTRO' });
+        res.status(200).json({ maestros: teachers });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Error del servidor.", error });
+    }
 });
 exports.getTeachers = getTeachers;
 //Editar maestros

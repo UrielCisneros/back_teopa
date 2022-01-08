@@ -11,9 +11,7 @@ export const createTeacher = async ( req: Request, res: Response ) => {
         newTeacher.admin = false;
         newTeacher.rol = 'MAESTRO';
         await newTeacher.save();
-
         res.status(200).json({message: "Maestro registrado."});
-
     } catch (error) {
         res.status(500).json({message: "Error del servidor.", error, body: req.body});
     }
@@ -21,7 +19,12 @@ export const createTeacher = async ( req: Request, res: Response ) => {
 
 //Obtener maestros
 export const getTeachers = async (req: Request, res:Response) => {
-
+    try {
+        const teachers = await UserModel.find().where({rol: 'MAESTRO'});
+        res.status(200).json({maestros: teachers});
+    } catch (error) {
+        res.status(500).json({message: "Error del servidor.", error});
+    }
 }
 
 

@@ -16,6 +16,7 @@ export const singIn = async (req: Request, res: Response) => {
         if(!correctPassowrd)return res.status(404).json({message: "Usuario incorrecto.", body: req.body});
         //Enviar un token
         const token: string = jwt.sign({
+            _id: userBase._id,
             nombre: userBase.nombre,
             domicilio: userBase.domicilio,
             telefono: userBase.telefono,
@@ -40,6 +41,7 @@ export const singInSimulation = async (req:Request, res: Response) => {
         const userBase = await UserModel.findById(req.params.idTeacher,{password: 0});
         if(!userBase) return res.status(404).json({message: "Usuario incorrecto.", body: {id_maestro: req.params.idTeacher}});
         const token: string = jwt.sign({
+            _id: userBase._id,
             nombre: userBase.nombre,
             domicilio: userBase.domicilio,
             telefono: userBase.telefono,
